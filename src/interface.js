@@ -8,18 +8,21 @@ $(document).ready(function() {
 
   $('#add-spaghetti').click(function() {
   restaurant.addOrder('spaghetti');
+  restaurant.getPrice('spaghetti');
   reloadAllOrders();
   reloadTotalPrice();
 })
 
 $('#add-pizza').click(function() {
 restaurant.addOrder('pizza');
+restaurant.getPrice('pizza');
 reloadAllOrders();
 reloadTotalPrice();
 })
 
 $('#add-chilli').click(function() {
 restaurant.addOrder('chilli');
+restaurant.getPrice('chilli');
 reloadAllOrders();
 reloadTotalPrice();
 })
