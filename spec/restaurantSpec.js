@@ -10,29 +10,38 @@ describe('Restaurant', function() {
   });
 
   it('can list return with prices', function() {
-    expect(restaurant.getPrice('spaghetti')).toEqual(2);
+    restaurant.getPrice('spaghetti');
+    expect(restaurant.finalPrice()).toContain(2);
   });
 
   it('can tell you the price of a meal', function() {
-    expect(restaurant.getPrice('pizza')).toEqual(3);
+    restaurant.getPrice('pizza');
+    expect(restaurant.finalPrice()).toContain(3);
   });
 
   it('can add a meal to the order', function() {
     restaurant.addOrder('spaghetti');
+    restaurant.getPrice('spaghetti');
     expect(restaurant.allOrders()).toContain('spaghetti');
   })
 
   it('can have several meals on an order', function() {
     restaurant.addOrder('spaghetti');
+    restaurant.getPrice('spaghetti');
     restaurant.addOrder('pizza');
+    restaurant.getPrice('pizza');
     restaurant.addOrder('chilli');
+    restaurant.getPrice('chilli');
     expect(restaurant.allOrders()).toContain('spaghetti', 'pizza', 'chilli');
+    expect(restaurant.finalPrice()).toContain(2, 3, 4);
   })
 
   it('will add items cost to tell you the final price', function() {
     restaurant.addOrder('spaghetti');
+    restaurant.getPrice('spaghetti');
     restaurant.addOrder('pizza');
-    expect(restaurant.finalPrice()).toContain(5);
+    restaurant.getPrice('pizza');
+    expect(restaurant.finalPrice()).toContain(2, 3);
   })
 
 })

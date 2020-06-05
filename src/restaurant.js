@@ -22,7 +22,6 @@ class Restaurant {
 
   addOrder(meal) {
     this.order.push(meal);
-    // getPrice(meal);
   }
 
   allOrders() {
