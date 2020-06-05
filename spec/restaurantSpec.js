@@ -11,12 +11,12 @@ describe('Restaurant', function() {
 
   it('can list return with prices', function() {
     restaurant.getPrice('spaghetti');
-    expect(restaurant.finalPrice()).toContain(2);
+    expect(restaurant.finalPrice()).toEqual(2);
   });
 
   it('can tell you the price of a meal', function() {
     restaurant.getPrice('pizza');
-    expect(restaurant.finalPrice()).toContain(3);
+    expect(restaurant.finalPrice()).toEqual(3);
   });
 
   it('can add a meal to the order', function() {
@@ -33,7 +33,7 @@ describe('Restaurant', function() {
     restaurant.addOrder('chilli');
     restaurant.getPrice('chilli');
     expect(restaurant.allOrders()).toContain('spaghetti', 'pizza', 'chilli');
-    expect(restaurant.finalPrice()).toContain(2, 3, 4);
+    expect(restaurant.finalPrice()).toEqual(9);
   })
 
   it('will add items cost to tell you the final price', function() {
@@ -41,7 +41,7 @@ describe('Restaurant', function() {
     restaurant.getPrice('spaghetti');
     restaurant.addOrder('pizza');
     restaurant.getPrice('pizza');
-    expect(restaurant.finalPrice()).toContain(2, 3);
+    expect(restaurant.finalPrice()).toEqual(5);
   })
 
 })
