@@ -32,6 +32,6 @@ function reloadAllOrders() {
 }
 
 function reloadTotalPrice() {
-  $('#placefill2').text(restaurant.finalPrice());
+  $('#placefill2').text("£" + restaurant.finalPrice());
 }
 })
